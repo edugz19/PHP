@@ -64,7 +64,7 @@ if ( isset($_REQUEST['name']) ) {
 </select>
 <input type="submit" value="Play">
 <input type="submit" name="logout" value="Logout">
-</form>
+</form><br>
 
 <pre>
 <?php
@@ -78,7 +78,29 @@ if ( $human == -1 ) {
         }
     }
 } else {
-    print "Your Play=$names[$human] Computer Play=$names[$computer] Result=$result\n";
+    $human_election = '';
+    if ($human == 0) $human_election = '&#x1F91C;';
+    else if ($human == 1) $human_election = '&#x1F91A;';
+    else if ($human == 2) $human_election = '&#x1F596;';
+
+    $computer_election = '';
+    if ($computer == 0) $computer_election = '&#x1F91B;';
+    else if ($computer == 1) $computer_election = '&#x1F91A;';
+    else if ($computer == 2) $computer_election = '&#x1F596;';
+
+    print "<table>
+    <tr>
+      <th width='100'>Player</th>
+      <th>Computer</th>
+    </tr>
+    <tr>
+      <td><span style='font-size: 7rem'>$human_election</span></td>
+      <td><span style='font-size: 7rem''>$computer_election</span></td>
+    </tr>
+    <tr>
+      <th colspan='2'>$result</th>
+    </tr>
+  </table>";
 }
 ?>
 </pre>
